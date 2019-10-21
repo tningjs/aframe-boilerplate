@@ -8,11 +8,55 @@
   </head>
   <body>
     <a-scene>
-      <a-box color="#689F39" width="4" height="2" depth="0.2" position="0 1 -7" rotation="90 0 0" scale="1 1 1">
-        <a-circle color="#333333" side="double" position="2 0 0.11" rotation="90 0 0"></a-circle>
-      </a-box>
-      <a-circle color="#FFC107" side="double" position="-2 1 -6.89"></a-circle>
-      <a-cylinder color="#616161" height="2" radius="2" segments-radial="6" open-ended="true" side="double" position="0 1 0" rotation="0 -90 90" scale="2 1 2"></a-cylinder>
+        <a-scene>
+            <!-- Asset Management System -->
+            <a-assets>
+                <img id="metal-NRM" src="L08-IMGs/metal-1024-NRM.jpg">
+                <img id="brick" src="L08-IMGs/brick-1024.jpg">
+                <img id="brick-NRM" src="L08-IMGs/brick-1024-NRM.jpg">
+            </a-assets>
+            
+            <!-- Light-Blue Box > Metal Room -->
+            <a-box color="#FFFFFF"
+                   src="L08-IMGs/metal-1024.jpg"
+                   repeat="1 1"
+                   normal-map="#metal-NRM"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 -1"
+                   roughness="0.5"
+                   width="4" height="4" depth="4"
+                   position="-2 1.5 -9"
+                   scale="-1 1 1">
+            </a-box>
+            <!-- Brown Box > Brick Room -->
+            <a-box material="color: #FFFFFF;
+                             src: #brick;
+                             repeat: 2 2;
+                             normal-map: #brick-NRM;
+                             normal-texture-repeat: 2 2;
+                             normal-scale: 1 -1;
+                             roughness: 0.9"
+                   width="4" height="4" depth="4"
+                   position="2 1.5 -9"
+                   scale="-1 1 1">
+            </a-box>
+            
+            <!-- Blue Sphere | Standard Material -->
+            <a-sphere material="color: #0000AA;
+                                roughness: 0.2
+                                shader: standard"
+                      radius="0.5"
+                      position="-2 1.5 -8">
+            </a-sphere>
+            <!-- Red Sphere | Flat Material -->
+            <a-sphere material="color: #AA0000;
+                                roughness: 0.2;
+                                shader: flat;
+                                opacity: 0.5"
+                      radius="0.5"
+                      position="2 1.5 -8">
+            </a-sphere>
+        </a-scene>
     </a-scene>
   </body>
 </html>
